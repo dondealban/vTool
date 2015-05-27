@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>549</width>
-    <height>451</height>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>455</x>
-     <y>410</y>
+     <y>460</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>410</y>
+     <y>460</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -51,7 +51,7 @@
      <x>10</x>
      <y>10</y>
      <width>521</width>
-     <height>391</height>
+     <height>441</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -59,15 +59,15 @@
    </property>
    <widget class="QWidget" name="tb_main">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Validation</string>
     </attribute>
     <widget class="QGroupBox" name="gb3">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>250</y>
+       <x>10</x>
+       <y>330</y>
        <width>171</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="title">
@@ -76,9 +76,9 @@
      <widget class="QPushButton" name="pb_validate">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>131</width>
+        <x>10</x>
+        <y>25</y>
+        <width>151</width>
         <height>31</height>
        </rect>
       </property>
@@ -93,10 +93,10 @@
     <widget class="QGroupBox" name="gb2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>140</y>
-       <width>471</width>
-       <height>91</height>
+       <x>10</x>
+       <y>250</y>
+       <width>491</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="title">
@@ -105,9 +105,9 @@
      <widget class="QLineEdit" name="le_outFolder">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>40</y>
-        <width>291</width>
+        <x>210</x>
+        <y>30</y>
+        <width>261</width>
         <height>20</height>
        </rect>
       </property>
@@ -116,7 +116,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
+        <y>30</y>
         <width>151</width>
         <height>21</height>
        </rect>
@@ -133,7 +133,7 @@
      <property name="geometry">
       <rect>
        <x>320</x>
-       <y>270</y>
+       <y>360</y>
        <width>101</width>
        <height>21</height>
       </rect>
@@ -145,10 +145,10 @@
     <widget class="QGroupBox" name="gb1">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
-       <width>471</width>
-       <height>111</height>
+       <width>491</width>
+       <height>121</height>
       </rect>
      </property>
      <property name="title">
@@ -158,7 +158,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>29</y>
+        <y>19</y>
         <width>151</width>
         <height>21</height>
        </rect>
@@ -170,44 +170,12 @@
        <string>Select Input File</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="le_refColNr">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>70</y>
-        <width>31</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set reference column number. Check either in the dbf or in the shp file!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="le_preColNr">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>70</y>
-        <width>31</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set predicted column number. Check either in the dbf or in the shp file!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="le_inShapePath">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>30</y>
-        <width>281</width>
+        <x>210</x>
+        <y>20</y>
+        <width>261</width>
         <height>21</height>
        </rect>
       </property>
@@ -215,35 +183,94 @@
      <widget class="QLabel" name="lb_preColNr">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>70</y>
-        <width>111</width>
+        <x>210</x>
+        <y>50</y>
+        <width>51</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Predicted Column Nr:</string>
+       <string>Predicted</string>
       </property>
      </widget>
      <widget class="QLabel" name="lb_refColNr">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>70</y>
-        <width>111</width>
+        <y>50</y>
+        <width>51</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Reference Column Nr:</string>
+       <string>Reference</string>
       </property>
      </widget>
+     <widget class="QComboBox" name="cb_preCol">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>70</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cb_refCol">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="rb_weight">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>60</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Weight-based</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="rb_noweight">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>80</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Normal</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="gb4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>491</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Area Selection for Weight-based Validation (optional)</string>
+     </property>
      <widget class="QPushButton" name="pb_selectWeight">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>70</y>
-        <width>121</width>
+        <x>10</x>
+        <y>60</y>
+        <width>151</width>
         <height>21</height>
        </rect>
       </property>
@@ -251,14 +278,40 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select either ESRI Shapefile (.shp) or ESRI Shapefile attribute format (.dbf)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string>Select Weights</string>
+       <string>Set Area manually from List</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_selectWeight_csv">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>25</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select either ESRI Shapefile (.shp) or ESRI Shapefile attribute format (.dbf)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Load Area from CSV file</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_weightFromCSV">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>25</y>
+        <width>261</width>
+        <height>21</height>
+       </rect>
       </property>
      </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="tb_weight">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>Area</string>
     </attribute>
     <widget class="QTableWidget" name="tbl_setWeights">
      <property name="geometry">
@@ -266,7 +319,7 @@
        <x>10</x>
        <y>10</y>
        <width>491</width>
-       <height>311</height>
+       <height>361</height>
       </rect>
      </property>
      <property name="toolTip">
@@ -288,7 +341,7 @@
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>330</y>
+       <y>380</y>
        <width>81</width>
        <height>23</height>
       </rect>

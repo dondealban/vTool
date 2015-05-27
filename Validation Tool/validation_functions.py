@@ -11,99 +11,18 @@ from pylab import *
 import numpy as np
 import itertools
 
+
 def accuracies(confnorm, confnorm2, confmat, sx):
     producersaccuracy = np.diag(confnorm)
     usersaccuracy = np.diag(confnorm2)
     overallaccuracy = 100*float(sum(np.diag(confmat)))/sum((sx))
     return (overallaccuracy,producersaccuracy,usersaccuracy)
 
-
-def confusion_matrix(reference, predicted):
-    """
-    Calculates confusion matrix out of reference and predicted list
-    
-    :param reference: List of reference values
-    :type reference: list
-    
-    :param predicted: List of predicted values
-    :type predicted: list
-    """
-    classes = list(set(reference))
-    n = len(classes)
-    cm = np.array([z.count(x) for z in [zip(reference,predicted)] for x in itertools.product(classes,repeat=2)]).reshape(n,n)
-    return cm
-
 def diagonal(matrix):
     return np.diagonal(matrix)
 
 def divide(value1,value2):
     return np.divide(value1,value2)
-
-def kappa(y_true, y_pred, weights=None, allow_off_by_one=False):
-    """
-    Calculates Kappa coefficient with help of lists reference and predicted 
-    classification output values
-    
-    :param y_true: List of reference values
-    :type y_true: list
-    
-    :param y_pred: List of predicted values
-    :type y_pred: list
-    
-    :param weights: Value of weight (optional)
-    :type weights: value
-    
-    :param allow_off_by_one: Value of allow_off_by_one (optional)
-    :type allow_off_by_one: value
-    """
-    y_true = [int(np.round(float(y))) for y in y_true]
-    y_pred = [int(np.round(float(y))) for y in y_pred]
-    
-    min_rating = min(min(y_true), min(y_pred))
-    max_rating = max(max(y_true), max(y_pred))
-
-    y_true = [y - min_rating for y in y_true]
-    y_pred = [y - min_rating for y in y_pred]
-
-    num_ratings = max_rating - min_rating + 1
-    observed = confusion_matrix(y_true, y_pred)
-    num_scored_items = float(len(y_true))
-    
-
-    if isinstance(weights, string_types):
-        wt_scheme = weights
-        weights = None
-    else:
-        wt_scheme = ''
-    if weights is None:
-        weights = np.empty((num_ratings, num_ratings))
-        for i in range(num_ratings):
-            for j in range(num_ratings):
-                diff = abs(i - j)
-                if allow_off_by_one and diff:
-                    diff -= 1
-                if wt_scheme == 'linear':
-                    weights[i, j] = diff
-                elif wt_scheme == 'quadratic':
-                    weights[i, j] = diff ** 2
-                elif not wt_scheme:
-                    weights[i, j] = bool(diff)
-                else:
-                    raise ValueError(('Incorrect weight schema for ' +
-                                      'kappa: {}').format(wt_scheme))
-    
-    hist_true = np.bincount(y_true, minlength=num_ratings)
-    hist_true = hist_true[: num_ratings] / num_scored_items
-    hist_pred = np.bincount(y_pred, minlength=num_ratings)
-    hist_pred = hist_pred[: num_ratings] / num_scored_items
-    expected = np.outer(hist_true, hist_pred)
-    
-    observed = observed / num_scored_items
-    
-    k = 1.0
-    if np.count_nonzero(weights):
-        k -= (sum(sum(weights * observed)) / sum(sum(weights * expected)))
-    return k
 
 def multiply(value1,value2):
     return np.multiply(value1,value2)
@@ -133,6 +52,10 @@ def normalize(confmat):
         if sy[i] > 0:
             confnorm2[i,:] = (confmat[i,:]).astype(float)/sy[i]*100        
     return confnorm, confnorm2
+
+def objectCount(array):
+    return np.nansum(array, axis=1)
+
 
 def producers_users_accuracy(wdiag, sum_colum_wise, sum_row_wise):
     """
@@ -268,3 +191,46 @@ def weightedMatrix(matrix, weight):
         result = matrix[i]*weight[i]
         weighted_matrix.append(result)
     return weighted_matrix
+
+
+def confusion_matrix(observed,predicted):
+    """
+    Calculates confusion matrix in the same way as sklearn.metrics.confusion_matrix
+    
+    :param observed: Input vector for observed values
+    :type observed: list
+    
+    :param predicted: Input vector for predicted values
+    :type predicted: list
+    
+    :param confusion_matrix: Output confusion matrix
+    :type confusion_matrix: array
+    """
+    observed = np.array(observed)
+    predicted = np.array(predicted)
+
+    if (len(observed) != len(predicted)):
+        print("Vectors have not the same length")
+
+    observed_predicted = np.vstack((observed,predicted)).T
+    unique_values = np.union1d(np.unique(observed),np.unique(predicted))
+    length = len(unique_values)
+    n = length**2
+    combinations = np.zeros([n,2], dtype=unique_values.dtype)
+    combinations[:,0] = np.repeat(unique_values, length)
+
+    for i in xrange(length):
+        combinations[i*length:(i+1)*length,1] = unique_values
+
+    confusion_matrix = np.zeros((length,length))
+    for i in xrange(n):
+    
+        boolean = np.all(observed_predicted == combinations[i,:],axis=1)
+        boolean = np.count_nonzero(boolean)
+    
+        if (np.true_divide(i,length)==(i/length)):
+            column = 0
+        confusion_matrix[i/length,column]=boolean
+        column = column+1
+
+    return confusion_matrix
