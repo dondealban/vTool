@@ -139,7 +139,7 @@ class Ui_rkValidation(object):
         self.pb_selectWeight_csv.setToolTip(_translate("rkValidation", "<html><head/><body><p>Select either ESRI Shapefile (.shp) or ESRI Shapefile attribute format (.dbf)</p></body></html>", None))
         self.pb_selectWeight_csv.setText(_translate("rkValidation", "Load Area from CSV file", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tb_main), _translate("rkValidation", "Validation", None))
-        self.tbl_setWeights.setToolTip(_translate("rkValidation", "<html><head/><body><p>Displays data from database for pre-processing</p></body></html>", None))
+        self.tbl_setWeights.setToolTip(_translate("rkValidation", "<html><head/><body><p>Displays label (class) and the weight (area) per class</p></body></html>", None))
         self.tbl_setWeights.setSortingEnabled(True)
         self.pb_submitWeight.setText(_translate("rkValidation", "Submit", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tb_weight), _translate("rkValidation", "Area", None))
