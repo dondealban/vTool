@@ -12,3 +12,5 @@ validation = "Validation algorithm is based on the scientific work of P. Olofsso
 
 info_h = "<b>Contact<\b>"
 info = "For further information, feel free to contact the author of this plugin (Rene Kopeinig, renekope@gmail.com or rkopeinig@conabio.gob.mx)"
+
+
