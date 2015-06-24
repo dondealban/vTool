@@ -7,15 +7,14 @@
 
 # Mandatory items:
 
-
 [general]
 name=Validation Tool
 qgisMinimumVersion=2.0
 description=Validation Tool for ESRI Shapefile based on scientific paper named "Making better use of accuracy data in land change studies: Estimating accuracy and area quantifying uncertainty using stratified estimation"
+about=This tool was developed by René Kopeinig MSc. (UNDP) with support of Julian Equihua and Dr. Steffen Gebhardt (Conabio). This plugin was developed in order to have the possibility to validate the in Conabio derived MAD-Mex landcover classification and change products with the algorithm of P.Olofsson.
 version=0.1
 author=René Kopeinig
 email=rene.kopeinig@conabio.gob.mx
-
 # end of mandatory metadata
 
 # Optional items:
@@ -24,12 +23,12 @@ email=rene.kopeinig@conabio.gob.mx
 # changelog=
 
 # tags are comma separated with spaces allowed
-tags=
+tags=validation, weights, shapefiles, dbf, esri, olofsson
 
-homepage=
-tracker=
-repository=
-icon=icon.png
+homepage=https://github.com/g07kore
+tracker=https://github.com/g07kore
+repository=https://github.com/g07kore
+icon=rk_validation.png
 # experimental flag
 experimental=False
 
