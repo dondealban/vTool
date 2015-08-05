@@ -13,8 +13,8 @@ import itertools
 
 
 def accuracies(confnorm, confnorm2, confmat, sx):
-    producersaccuracy = np.diag(confnorm)
-    usersaccuracy = np.diag(confnorm2)
+    producersaccuracy = np.diag(confnorm2)
+    usersaccuracy = np.diag(confnorm)
     overallaccuracy = 100*float(sum(np.diag(confmat)))/sum((sx))
     return (overallaccuracy,producersaccuracy,usersaccuracy)
 
