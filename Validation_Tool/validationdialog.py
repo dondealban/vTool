@@ -112,7 +112,7 @@ class validationDialog(QtGui.QDialog):
             if self.ui.cb_useWeight.isChecked() == True:
                 self.weight = weight_based_on_area(self.sqkm_vector)
                 self.weighted_matrix = weightedMatrix(self.cmn_normalized, self.weight)
-                [self.producers_accuracy, self.user_accuracy] = producers_users_accuracy(diagonal(self.weighted_matrix), sumMatrix(self.weighted_matrix,1), sumMatrix(self.weighted_matrix,0))
+                [self.producers_accuracy, self.user_accuracy] = producers_users_accuracy(diagonal(self.weighted_matrix), sumMatrix(self.weighted_matrix,0), sumMatrix(self.weighted_matrix,1))
                 [self.stratified_producers_error, self.p_error, self.producers_error, self.overall_producers_error] = producersError(self.confmat,self.weight,self.sqkm_vector)
                 [self.stratified_user_error, self.u_error, self.users_error, self.overall_users_error] = usersError(self.confmat,self.weight,self.sqkm_vector)
                 self.overall = np.nansum(diagonal(self.weighted_matrix))
